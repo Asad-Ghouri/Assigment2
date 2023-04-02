@@ -1,12 +1,18 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
-import { HellowWorld } from "./components/HellowWorld/HellowWorld";
-import { Counter } from "./components/Counter/Counter";
+import ListItems from "./component/ListItems/ListItems";
+import { Header } from "./component/Header/Header";
+import { Routes, Route } from "react-router-dom";
+import FetchData from "./component/FetchData/FetchData";
+
 function App() {
   return (
-    <div className="App">
-      <HellowWorld />
-      <Counter />
+    <div>
+      <Header />
+      <Routes>
+        <Route index element={<ListItems />} />
+        <Route path="/FetchApi" element={<FetchData />} />
+      </Routes>
     </div>
   );
 }
