@@ -38,7 +38,7 @@ function ItemsForm(props) {
       Priority: Formpriority,
     });
     setInput("");
-    // setFormPriority("");
+    setFormPriority("");
   };
 
   return (
