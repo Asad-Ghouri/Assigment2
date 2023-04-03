@@ -31,17 +31,21 @@ const Items = ({ todos, completeTodo, removeTodo, updateTodo, priority1 }) => {
   //   console.log("a - priority is" + )
 
   return (
-    <div className={!edit.id ? "nothing" : "d-n"}>
+    <div>
       {todos
         .sort((a, b) => a.Priority - b.Priority)
         .map((todo, index) => {
           return (
+
             <div
               className={todo.isComplete ? "todo-row complete" : "todo-row"}
               key={index}
             >
               <div key={todo.id} onClick={() => completeTodo(todo.id)}>
                 {todo.text}
+              </div>
+              <div className="priority-rs">
+                {todo.Priority}
               </div>
               <div className="icons">
                 <RiCloseCircleLine
@@ -53,13 +57,7 @@ const Items = ({ todos, completeTodo, removeTodo, updateTodo, priority1 }) => {
                   className="edit-icon"
                 />
               </div>
-              {edit.id ? (
-                <ItemsForm
-                  Priority={todo.Priority}
-                  edit={edit}
-                  onSubmit={submitUpdate}
-                />
-              ) : undefined}
+
             </div>
           );
         })}
